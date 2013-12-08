@@ -10,10 +10,10 @@ namespace GridMvc
     public abstract class GridBase<T> where T : class
     {
         //pre-processors process items before adds to main collection (like filtering)
-        private readonly List<IGridItemsProcessor<T>> _preprocessors = new List<IGridItemsProcessor<T>>();
-        private readonly List<IGridItemsProcessor<T>> _processors = new List<IGridItemsProcessor<T>>();
+        private readonly List<IGridItemsPreprocessor<T>> _preprocessors = new List<IGridItemsPreprocessor<T>>();
+        protected IGridItemsProcessor<T> _processor;
         protected IEnumerable<T> AfterItems; //items after processors
-        protected IQueryable<T> BeforeItems; //items before processors
+        protected IDataQueryable<T> BeforeItems; //items before processors
 
 
         //private int _itemsCount = -1; // total items count on collection
@@ -22,14 +22,14 @@ namespace GridMvc
 
         private Func<T, string> _rowCssClassesContraint;
 
-        protected GridBase(IQueryable<T> items)
+        protected GridBase(IDataQueryable<T> items)
         {
             BeforeItems = items;
         }
 
         public abstract IGridSettingsProvider Settings { get; set; }
 
-        public IQueryable<T> GridItems
+        public IDataQueryable<T> GridItems
         {
             get
             {
@@ -39,7 +39,7 @@ namespace GridMvc
                     _itemsPreProcessed = true;
                     foreach (var gridItemsProcessor in _preprocessors)
                     {
-                        BeforeItems = gridItemsProcessor.Process(BeforeItems);
+                        gridItemsProcessor.Process(BeforeItems);
                     }
                 }
                 return BeforeItems;
@@ -90,45 +90,31 @@ namespace GridMvc
             if (!_itemsProcessed)
             {
                 _itemsProcessed = true;
-                IQueryable<T> itemsToProcess = GridItems;
-                foreach (var processor in _processors.Where(p => p != null))
+                IDataQueryable<T> itemsToProcess = GridItems;
+
+                if (_processor != null)
                 {
-                    itemsToProcess = processor.Process(itemsToProcess);
+                    AfterItems = _processor.Process(itemsToProcess);
                 }
-                AfterItems = itemsToProcess.ToList(); //select from db (in EF case)
+                else
+                {
+                    AfterItems = itemsToProcess.Fetch();
+                }
             }
         }
 
         #region Processors methods
 
-        protected void AddItemsProcessor(IGridItemsProcessor<T> processor)
-        {
-            if (!_processors.Contains(processor))
-                _processors.Add(processor);
-        }
-
-        protected void RemoveItemsProcessor(IGridItemsProcessor<T> processor)
-        {
-            if (_processors.Contains(processor))
-                _processors.Remove(processor);
-        }
-
-        protected void AddItemsPreProcessor(IGridItemsProcessor<T> processor)
+        protected void AddItemsPreProcessor(IGridItemsPreprocessor<T> processor)
         {
             if (!_preprocessors.Contains(processor))
                 _preprocessors.Add(processor);
         }
 
-        protected void RemoveItemsPreProcessor(IGridItemsProcessor<T> processor)
+        protected void RemoveItemsPreProcessor(IGridItemsPreprocessor<T> processor)
         {
             if (_preprocessors.Contains(processor))
                 _preprocessors.Remove(processor);
-        }
-
-        protected void InsertItemsProcessor(int position, IGridItemsProcessor<T> processor)
-        {
-            if (!_processors.Contains(processor))
-                _processors.Insert(position, processor);
         }
 
         #endregion

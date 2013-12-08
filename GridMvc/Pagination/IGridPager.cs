@@ -22,7 +22,7 @@ namespace GridMvc.Pagination
         /// <summary>
         ///     Method invokes before pager render
         /// </summary>
-        void Initialize<T>(IQueryable<T> items);
+        void Initialize<T>(IDataQueryable<T> items);
 
         ///// <summary>
         /////     Total pages count

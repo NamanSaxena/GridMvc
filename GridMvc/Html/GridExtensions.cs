@@ -12,23 +12,23 @@ namespace GridMvc.Html
     {
         internal const string DefaultPartialViewName = "_Grid";
 
-        public static HtmlGrid<T> Grid<T>(this HtmlHelper helper, IEnumerable<T> items)
+        public static HtmlGrid<T> Grid<T>(this HtmlHelper helper, IDataQueryable<T> items)
             where T : class
         {
             return Grid(helper, items, DefaultPartialViewName);
         }
 
-        public static HtmlGrid<T> Grid<T>(this HtmlHelper helper, IEnumerable<T> items, string viewName)
+        public static HtmlGrid<T> Grid<T>(this HtmlHelper helper, IDataQueryable<T> items, string viewName)
             where T : class
         {
             return Grid(helper, items, GridRenderOptions.Create(string.Empty, viewName));
         }
 
-        public static HtmlGrid<T> Grid<T>(this HtmlHelper helper, IEnumerable<T> items,
+        public static HtmlGrid<T> Grid<T>(this HtmlHelper helper, IDataQueryable<T> items,
                                           GridRenderOptions renderOptions)
             where T : class
         {
-            var newGrid = new Grid<T>(items.AsQueryable());
+            var newGrid = new Grid<T>(items);
             newGrid.RenderOptions = renderOptions;
             var htmlGrid = new HtmlGrid<T>(newGrid, helper.ViewContext, renderOptions.ViewName);
             return htmlGrid;

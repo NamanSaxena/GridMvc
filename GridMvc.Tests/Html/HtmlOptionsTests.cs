@@ -21,7 +21,7 @@ namespace GridMvc.Tests.Html
         public void Init()
         {
             HttpContext.Current = new HttpContext(new HttpRequest("", "http://tempuri.org", ""), new HttpResponse(new StringWriter()));
-            _grid = new TestGrid(Enumerable.Empty<TestModel>());
+            _grid = new TestGrid(new TestDataQueryable<TestModel>(Enumerable.Empty<TestModel>()));
             var viewContextMock = new Mock<ViewContext>();
             _opt = new GridHtmlOptions<TestModel>(_grid, viewContextMock.Object, "_Grid");
         }

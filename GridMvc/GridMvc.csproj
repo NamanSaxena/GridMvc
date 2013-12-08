@@ -53,6 +53,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnOrder.cs" />
     <Compile Include="Columns\DefaultColumnBuilder.cs" />
     <Compile Include="Columns\GridColumnBase.cs" />
     <Compile Include="Columns\GridColumnCollection.cs" />
@@ -93,8 +94,11 @@
     <Compile Include="Html\HtmlGrid.cs" />
     <Compile Include="Html\IGridHtmlOptions.cs" />
     <Compile Include="DataAnnotations\IGridAnnotaionsProvider.cs" />
+    <Compile Include="IDataQueryable.cs" />
     <Compile Include="IGridColumnHeaderRenderer.cs" />
+    <Compile Include="IGridItemsProcessor.cs" />
     <Compile Include="ISanitizer.cs" />
+    <Compile Include="OrderDirection.cs" />
     <Compile Include="Pagination\GridPager.cs" />
     <Compile Include="Resources\Strings.it.Designer.cs">
       <DependentUpon>Strings.it.resx</DependentUpon>
@@ -144,7 +148,7 @@
     <Compile Include="IGridCell.cs" />
     <Compile Include="Columns\IGridColumn.cs" />
     <Compile Include="IGridCellRenderer.cs" />
-    <Compile Include="IGridItemsProcessor.cs" />
+    <Compile Include="IGridItemsPreprocessor.cs" />
     <Compile Include="Pagination\IGridPager.cs" />
     <Compile Include="Pagination\PagerGridItemsProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

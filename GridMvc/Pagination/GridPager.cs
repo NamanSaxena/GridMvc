@@ -117,9 +117,9 @@ namespace GridMvc.Pagination
         /// </summary>
         public int PageCount { get; protected set; }
 
-        public virtual void Initialize<T>(IQueryable<T> items)
+        public virtual void Initialize<T>(IDataQueryable<T> items)
         {
-            ItemsCount = items.Count(); //take total items count from collection
+            ItemsCount = items.Count; //take total items count from collection
         }
 
         protected virtual void RecalculatePages()

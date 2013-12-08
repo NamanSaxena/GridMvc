@@ -5,7 +5,7 @@ namespace GridMvc.Site.Models.Grids
 {
     public class OrdersGrid : Grid<Order>
     {
-        public OrdersGrid(IQueryable<Order> items)
+        public OrdersGrid(IDataQueryable<Order> items)
             : base(items)
         {
         }

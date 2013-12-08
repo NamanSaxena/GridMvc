@@ -8,7 +8,7 @@ namespace GridMvc.Filtering
     /// <summary>
     ///     Grid items filter proprocessor
     /// </summary>
-    internal class FilterGridItemsProcessor<T> : IGridItemsProcessor<T> where T : class
+    internal class FilterGridItemsProcessor<T> : IGridItemsPreprocessor<T> where T : class
     {
         private readonly IGrid _grid;
         private IGridFilterSettings _settings;
@@ -30,28 +30,28 @@ namespace GridMvc.Filtering
 
         #region IGridItemsProcessor<T> Members
 
-        public IQueryable<T> Process(IQueryable<T> items)
+        public void Process(IDataQueryable<T> items)
         {
-            foreach (IGridColumn column in _grid.Columns)
-            {
-                var gridColumn = column as IGridColumn<T>;
-                if (gridColumn == null) continue;
-                if (gridColumn.Filter == null) continue;
+            //foreach (IGridColumn column in _grid.Columns)
+            //{
+            //    var gridColumn = column as IGridColumn<T>;
+            //    if (gridColumn == null) continue;
+            //    if (gridColumn.Filter == null) continue;
 
-                IEnumerable<ColumnFilterValue> options = _settings.IsInitState
-                                                             ? new List<ColumnFilterValue>
-                                                                 {
-                                                                     column.InitialFilterSettings
-                                                                 }
-                                                             : _settings.FilteredColumns.GetByColumn(column);
-                foreach (ColumnFilterValue filterOptions in options)
-                {
-                    if (filterOptions == ColumnFilterValue.Null)
-                        continue;
-                    items = gridColumn.Filter.ApplyFilter(items, filterOptions);
-                }
-            }
-            return items;
+            //    IEnumerable<ColumnFilterValue> options = _settings.IsInitState
+            //                                                 ? new List<ColumnFilterValue>
+            //                                                     {
+            //                                                         column.InitialFilterSettings
+            //                                                     }
+            //                                                 : _settings.FilteredColumns.GetByColumn(column);
+            //    foreach (ColumnFilterValue filterOptions in options)
+            //    {
+            //        if (filterOptions == ColumnFilterValue.Null)
+            //            continue;
+            //        items = gridColumn.Filter.ApplyFilter(items, filterOptions);
+            //    }
+            //}
+            //return items;
         }
 
         #endregion

@@ -29,12 +29,7 @@ namespace GridMvc
         private IGridItemsProcessor<T> _pagerProcessor;
         private IGridSettingsProvider _settings;
 
-        public Grid(IEnumerable<T> items)
-            : this(items.AsQueryable())
-        {
-        }
-
-        public Grid(IQueryable<T> items)
+        public Grid(IDataQueryable<T> items)
             : base(items)
         {
             #region init default properties
@@ -48,7 +43,7 @@ namespace GridMvc
             _currentSortItemsProcessor = new SortGridItemsProcessor<T>(this, _settings.SortSettings);
             _currentFilterItemsProcessor = new FilterGridItemsProcessor<T>(this, _settings.FilterSettings);
             AddItemsPreProcessor(_currentFilterItemsProcessor);
-            InsertItemsProcessor(0, _currentSortItemsProcessor);
+            AddItemsPreProcessor(_currentSortItemsProcessor);
 
             _annotaions = new GridAnnotaionsProvider();
 
@@ -142,11 +137,11 @@ namespace GridMvc
                 {
                     if (_pagerProcessor == null)
                         _pagerProcessor = new PagerGridItemsProcessor<T>(Pager);
-                    AddItemsProcessor(_pagerProcessor);
+                    _processor = _pagerProcessor;
                 }
                 else
                 {
-                    RemoveItemsProcessor(_pagerProcessor);
+                    _processor = null;
                 }
             }
         }

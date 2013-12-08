@@ -46,7 +46,7 @@ namespace GridMvc.Site.Models.Grids
             }
         }
 
-        public void Initialize<T>(IQueryable<T> items)
+        public void Initialize<T>(IDataQueryable<T> items)
         {
             //do nothing
         }

@@ -40,9 +40,9 @@ namespace GridMvc.Tests.Filtering
                 };
             var filter = new DefaultColumnFilter<TestModel, DateTime>(m => m.Created);
 
-            var filtered = filter.ApplyFilter(_repo.GetAll().AsQueryable(), filterOptions);
+            var filtered = filter.ApplyFilter(_repo.GetAll().Fetch().AsQueryable(), filterOptions);
 
-            var original = _repo.GetAll().AsQueryable().Where(t => t.Created < new DateTime(2005, 5, 10));
+            var original = _repo.GetAll().Fetch().AsQueryable().Where(t => t.Created < new DateTime(2005, 5, 10));
 
             for (int i = 0; i < filtered.Count(); i++)
             {
@@ -64,9 +64,9 @@ namespace GridMvc.Tests.Filtering
             };
             var filter = new DefaultColumnFilter<TestModel, DateTime>(m => m.Created);
 
-            var filtered = filter.ApplyFilter(_repo.GetAll().AsQueryable(), filterOptions);
+            var filtered = filter.ApplyFilter(_repo.GetAll().Fetch().AsQueryable(), filterOptions);
 
-            var original = _repo.GetAll().AsQueryable().Where(t => t.Created <= new DateTime(2002, 5, 1));
+            var original = _repo.GetAll().Fetch().AsQueryable().Where(t => t.Created <= new DateTime(2002, 5, 1));
 
             for (int i = 0; i < filtered.Count(); i++)
             {
@@ -86,9 +86,9 @@ namespace GridMvc.Tests.Filtering
             };
             var filter = new DefaultColumnFilter<TestModel, DateTime>(m => m.Created);
 
-            var filtered = filter.ApplyFilter(_repo.GetAll().AsQueryable(), filterOptions);
+            var filtered = filter.ApplyFilter(_repo.GetAll().Fetch().AsQueryable(), filterOptions);
 
-            var original = _repo.GetAll().AsQueryable().Where(t => t.Created >= new DateTime(2002, 5, 1));
+            var original = _repo.GetAll().Fetch().AsQueryable().Where(t => t.Created >= new DateTime(2002, 5, 1));
 
             for (int i = 0; i < filtered.Count(); i++)
             {
@@ -121,7 +121,7 @@ namespace GridMvc.Tests.Filtering
         [TestMethod]
         public void TestFilteringStringEquals()
         {
-            var firstItem = _repo.GetAll().First();
+            var firstItem = _repo.GetAll().Fetch().First();
             var settings = MockFilterSetting("Title", firstItem.Title, GridFilterType.Contains);
             TestFiltering(settings, x => x.Title, x => x.Title.ToUpper() == firstItem.Title.ToUpper());
         }
@@ -129,7 +129,7 @@ namespace GridMvc.Tests.Filtering
         [TestMethod]
         public void TestFilteringStringEqualsCaseInsensative()
         {
-            var firstItem = _repo.GetAll().First();
+            var firstItem = _repo.GetAll().Fetch().First();
             var settings = MockFilterSetting("Title", firstItem.Title.ToUpper(), GridFilterType.Contains);
             TestFiltering(settings, x => x.Title, x => x.Title.ToUpper() == firstItem.Title.ToUpper());
         }
@@ -137,7 +137,7 @@ namespace GridMvc.Tests.Filtering
         [TestMethod]
         public void TestFilteringStringContains()
         {
-            var firstItem = _repo.GetAll().First();
+            var firstItem = _repo.GetAll().Fetch().First();
             var settings = MockFilterSetting("Title", firstItem.Title, GridFilterType.Contains);
             TestFiltering(settings, x => x.Title, x => x.Title.ToUpper().Contains(firstItem.Title.ToUpper()));
         }
@@ -145,7 +145,7 @@ namespace GridMvc.Tests.Filtering
         [TestMethod]
         public void TestFilteringIntEquals()
         {
-            var firstItem = _repo.GetAll().First();
+            var firstItem = _repo.GetAll().Fetch().First();
             var settings = MockFilterSetting("Id", firstItem.Title, GridFilterType.Contains);
             TestFiltering(settings, x => x.Title, x => x.Id == firstItem.Id);
         }
@@ -153,7 +153,7 @@ namespace GridMvc.Tests.Filtering
         [TestMethod]
         public void TestFilteringChildEquals()
         {
-            var firstItem = _repo.GetAll().First();
+            var firstItem = _repo.GetAll().Fetch().First();
             var settings = MockFilterSetting("Created2", firstItem.Child.ChildCreated.Date.ToString(CultureInfo.InvariantCulture), GridFilterType.Equals);
             TestFiltering(settings, x => x.Child.ChildCreated, x => x.Child.ChildCreated == firstItem.Child.ChildCreated);
         }
@@ -185,7 +185,7 @@ namespace GridMvc.Tests.Filtering
             IEnumerable<TestModel> resultCollection = _grid.GetItemsToDisplay();
             if (!resultCollection.Any()) Assert.Fail("No items to compare");
 
-            IEnumerable<TestModel> etalonCollection = _repo.GetAll().Where(filterExpression);
+            IEnumerable<TestModel> etalonCollection = _repo.GetAll().Fetch().Where(filterExpression);
 
             if (!ValidateCollectionsTheSame(resultCollection, etalonCollection))
             {

@@ -5,7 +5,7 @@ namespace GridMvc.Tests
 {
     public class TestGrid : Grid<TestModel>
     {
-        public TestGrid(IEnumerable<TestModel> items)
+        public TestGrid(IDataQueryable<TestModel> items)
             : base(items)
         {
         }

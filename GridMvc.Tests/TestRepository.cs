@@ -6,9 +6,9 @@ namespace GridMvc.Tests
 {
     internal class TestRepository
     {
-        public IQueryable<TestModel> GetAll()
+        public IDataQueryable<TestModel> GetAll()
         {
-            return GetTestData().AsQueryable();
+            return new TestDataQueryable<TestModel>(GetTestData());
         }
 
         private IEnumerable<TestModel> GetTestData()

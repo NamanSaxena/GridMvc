@@ -57,7 +57,7 @@ namespace GridMvc.Tests.Renderers
             var settings = new QueryStringFilterSettings();
             var renderer = new QueryStringFilterColumnHeaderRenderer(settings);
 
-            var column = new GridColumn<TestModel, string>(c => c.Title, new TestGrid(Enumerable.Empty<TestModel>()));
+            var column = new GridColumn<TestModel, string>(c => c.Title, new TestGrid(new TestDataQueryable<TestModel>(Enumerable.Empty<TestModel>())));
 
             var htmlstring = renderer.Render(column);
             Assert.IsNotNull(htmlstring);
@@ -84,7 +84,7 @@ namespace GridMvc.Tests.Renderers
             var settings = new QueryStringSortSettings();
             var renderer = new QueryStringSortColumnHeaderRenderer(settings);
 
-            var column = new GridColumn<TestModel, string>(c => c.Title, new TestGrid(Enumerable.Empty<TestModel>()));
+            var column = new GridColumn<TestModel, string>(c => c.Title, new TestGrid(new TestDataQueryable<TestModel>(Enumerable.Empty<TestModel>())));
 
             var htmlstring = renderer.Render(column);
             Assert.IsNotNull(htmlstring);

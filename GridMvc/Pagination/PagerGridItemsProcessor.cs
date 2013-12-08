@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace GridMvc.Pagination
 {
@@ -17,14 +18,19 @@ namespace GridMvc.Pagination
 
         #region IGridItemsProcessor<T> Members
 
-        public IQueryable<T> Process(IQueryable<T> items)
+        public IEnumerable<T> Process(IDataQueryable<T> items)
         {
             _pager.Initialize(items); //init pager
 
-            if (_pager.CurrentPage <= 0) return items; //incorrect page
+            int currentPage = _pager.CurrentPage;
 
-            int skip = (_pager.CurrentPage - 1)*_pager.PageSize;
-            return items.Skip(skip).Take(_pager.PageSize);
+            if (currentPage <= 0)
+            {
+                currentPage = 1;
+            }
+
+            int skip = (currentPage - 1) * _pager.PageSize;
+            return items.Fetch(skip,_pager.PageSize);
         }
 
         #endregion

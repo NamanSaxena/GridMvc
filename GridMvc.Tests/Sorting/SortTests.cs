@@ -204,10 +204,10 @@ namespace GridMvc.Tests.Sorting
             switch (direction)
             {
                 case GridSortDirection.Ascending:
-                    etalonCollection = _repo.GetAll().OrderBy(orderExpression);
+                    etalonCollection = _repo.GetAll().Fetch().OrderBy(orderExpression);
                     break;
                 case GridSortDirection.Descending:
-                    etalonCollection = _repo.GetAll().OrderByDescending(orderExpression);
+                    etalonCollection = _repo.GetAll().Fetch().OrderByDescending(orderExpression);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("direction");

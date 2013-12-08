@@ -20,7 +20,7 @@ namespace GridMvc.Tests.DataAnnotations
             HttpContext.Current = new HttpContext(
                 new HttpRequest("", "http://tempuri.org", ""),
                 new HttpResponse(new StringWriter()));
-            _grid = new Grid<TestGridAnnotationModel>(Enumerable.Empty<TestGridAnnotationModel>().AsQueryable());
+            _grid = new Grid<TestGridAnnotationModel>(new TestDataQueryable<TestGridAnnotationModel>(Enumerable.Empty<TestGridAnnotationModel>()));
         }
 
         [TestMethod]

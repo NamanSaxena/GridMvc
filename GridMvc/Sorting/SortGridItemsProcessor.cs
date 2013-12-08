@@ -8,7 +8,7 @@ namespace GridMvc.Sorting
     ///     Settings grid items, based on current sorting settings
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal class SortGridItemsProcessor<T> : IGridItemsProcessor<T> where T : class
+    internal class SortGridItemsProcessor<T> : IGridItemsPreprocessor<T> where T : class
     {
         private readonly IGrid _grid;
         private IGridSortSettings _settings;
@@ -30,19 +30,19 @@ namespace GridMvc.Sorting
 
         #region IGridItemsProcessor<T> Members
 
-        public IQueryable<T> Process(IQueryable<T> items)
+        public void Process(IDataQueryable<T> items)
         {
-            if (string.IsNullOrEmpty(_settings.ColumnName))
-                return items;
-            //determine gridColumn sortable:
-            var gridColumn = _grid.Columns.FirstOrDefault(c => c.Name == _settings.ColumnName) as IGridColumn<T>;
-            if (gridColumn == null || !gridColumn.SortEnabled)
-                return items;
-            foreach (var columnOrderer in gridColumn.Orderers)
-            {
-                items = columnOrderer.ApplyOrder(items, _settings.Direction);
-            }
-            return items;
+            //if (string.IsNullOrEmpty(_settings.ColumnName))
+            //    return items;
+            ////determine gridColumn sortable:
+            //var gridColumn = _grid.Columns.FirstOrDefault(c => c.Name == _settings.ColumnName) as IGridColumn<T>;
+            //if (gridColumn == null || !gridColumn.SortEnabled)
+            //    return items;
+            //foreach (var columnOrderer in gridColumn.Orderers)
+            //{
+            //    items = columnOrderer.ApplyOrder(items, _settings.Direction);
+            //}
+            //return items;
         }
 
         #endregion
