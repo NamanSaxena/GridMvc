@@ -5,7 +5,7 @@ namespace GridMvc.Site.Models.Grids
 {
     public class OrdersAjaxPagingGrid : OrdersGrid
     {
-        public OrdersAjaxPagingGrid(IQueryable<Order> items, int page, bool renderOnlyRows)
+        public OrdersAjaxPagingGrid(IDataQueryable<Order> items, int page, bool renderOnlyRows)
             : base(items)
         {
             Pager = new AjaxGridPager(this) { CurrentPage = page }; ; //override  default pager

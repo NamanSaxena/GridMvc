@@ -2,9 +2,9 @@
 
 namespace GridMvc.Site.Models
 {
-    public interface IRepository<out T>
+    public interface IRepository<T>
     {
-        IOrderedQueryable<T> GetAll();
+        IDataQueryable<T> GetAll();
         T GetById(object id);
     }
 }

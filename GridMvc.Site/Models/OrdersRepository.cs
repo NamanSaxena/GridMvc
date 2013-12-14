@@ -9,14 +9,16 @@ namespace GridMvc.Site.Models
         {
         }
 
-        public override IOrderedQueryable<Order> GetAll()
+        public override IDataQueryable<Order> GetAll()
         {
-            return EfDbSet.Include("Customer").OrderByDescending(o => o.OrderDate);
+            IDataQueryable<Order> order = new DataQueryable<Order>(EfDbSet.Include("Customer").OrderByDescending(o => o.OrderDate));
+            
+            return order;
         }
 
         public override Order GetById(object id)
         {
-            return GetAll().FirstOrDefault(o => o.OrderID == (int) id);
+            return GetAll().Fetch().FirstOrDefault(o => o.OrderID == (int) id);
         }
     }
 }

@@ -149,6 +149,7 @@
     </Compile>
     <Compile Include="Models\CheckboxColumnRenderer.cs" />
     <Compile Include="Models\CustomersRepository.cs" />
+    <Compile Include="Models\DataQueryable.cs" />
     <Compile Include="Models\Domain\Category.cs" />
     <Compile Include="Models\Domain\Customer.cs" />
     <Compile Include="Models\Domain\Employee.cs" />

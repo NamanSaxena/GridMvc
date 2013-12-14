@@ -37,7 +37,7 @@ namespace GridMvc.Site.Controllers
         public JsonResult GetCustomersNames()
         {
             var repository = new CustomersRepository();
-            var allItems = repository.GetAll().Select(c => c.CompanyName);
+            var allItems = repository.GetAll().Fetch().Select(c => c.CompanyName);
             return Json(new { Items = allItems });
         }
 

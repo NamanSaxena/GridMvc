@@ -14,9 +14,9 @@ namespace GridMvc.Site.Models
 
         #region IRepository<T> Members
 
-        public virtual IOrderedQueryable<T> GetAll()
+        public virtual IDataQueryable<T> GetAll()
         {
-            return EfDbSet;
+            return new DataQueryable<T>(EfDbSet);
         }
 
         public abstract T GetById(object id);

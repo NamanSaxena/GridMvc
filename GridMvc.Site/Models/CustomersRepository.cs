@@ -9,14 +9,14 @@ namespace GridMvc.Site.Models
         {
         }
 
-        public override IOrderedQueryable<Customer> GetAll()
+        public override IDataQueryable<Customer> GetAll()
         {
-            return base.GetAll().OrderBy(o => o.CompanyName);
+            return new DataQueryable<Customer>(base.GetAll().Fetch().OrderBy(o => o.CompanyName));
         }
 
         public override Customer GetById(object id)
         {
-            return GetAll().FirstOrDefault(c => c.CustomerID == (string)id);
+            return GetAll().Fetch().FirstOrDefault(c => c.CustomerID == (string)id);
         }
     }
 }
