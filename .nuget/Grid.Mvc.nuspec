@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Grid.Mvc</id>
-    <version>3.1.0-ci1018</version>
-    <title>Grid.Mvc</title>
-    <authors>Vyacheslav Bukharin</authors>
-    <licenseUrl>http://gridmvc.codeplex.com/license</licenseUrl>
-    <projectUrl>http://gridmvc.codeplex.com/</projectUrl>
-    <iconUrl>http://www.codeplex.com/Download?ProjectName=gridmvc&amp;DownloadId=386651</iconUrl>
+    <id>Grid.Mvc.ModernRouteMod</id>
+    <version>0.1.0</version>
+    <title>Grid.Mvc (ModernRoute mod)</title>
+    <authors>Vyacheslav Bukharin, ModernRoute team</authors>
+    <licenseUrl>https://github.com/ModernRoute/GridMvc/blob/master/COPYING</licenseUrl>
+    <projectUrl>https://github.com/ModernRoute/GridMvc</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Package provides functionality to build GridView based on your model items collection. Grid.Mvc support sorting, filtering and paging your data.</description>
+    <description>Package provides functionality to build GridView based on your model items collection. Grid.Mvc support sorting and paging your data. Filtering is not supported yet.</description>
     <tags>ASP.NET MVC Control GridView Grid Generic</tags>
   </metadata>
   <files>
