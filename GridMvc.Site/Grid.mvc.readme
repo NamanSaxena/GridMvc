@@ -1,4 +1,8 @@
-﻿http://gridmvc.codeplex.com/
+﻿This is just helper implementation to using GridMvc with pure ADO.NET data access.
+If you don't need it and you do use ORM, please use the original GridMvc.
+http://gridmvc.codeplex.com/
+
+The mod URL: https://github.com/ModernRoute/GridMvc
 
 Note: Grid.Mvc installer has already made the following changes to your project:
 - Views/Shared/_Grid.cshtml, Views/Shared/_GridPager.cshtml - views for grid
@@ -57,4 +61,5 @@ like:
 
 Also you need to ensure that jQuery has registred on the page before gridmvc.min.js script.
 
-For more documetation, please see: http://gridmvc.codeplex.com/
+For more documetation, please see original project: http://gridmvc.codeplex.com/
+

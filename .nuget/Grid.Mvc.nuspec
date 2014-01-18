@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Grid.Mvc.ModernRouteMod</id>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <title>Grid.Mvc (ModernRoute mod)</title>
     <authors>Vyacheslav Bukharin, ModernRoute team</authors>
     <licenseUrl>https://github.com/ModernRoute/GridMvc/blob/master/COPYING</licenseUrl>
