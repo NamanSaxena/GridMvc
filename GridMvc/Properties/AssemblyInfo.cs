@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("GridMvc")]
 [assembly: AssemblyDescription("ASP.NET MVC Grid component")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("gridmvc.codeplex.com")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GridMvc")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © Vyacheslav Bukharin 2012-2013, ModernRoute team 2013-2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -36,6 +36,6 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("2.0.0.0")]
+[assembly: AssemblyVersion("0.1.0.*")]
+[assembly: AssemblyFileVersion("0.1.0.0")]
 [assembly: InternalsVisibleTo("GridMvc.Tests")]
