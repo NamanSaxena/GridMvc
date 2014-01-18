@@ -20,24 +20,24 @@ namespace GridMvc.Sorting
 
         #region IColumnOrderer<T> Members
 
-        public IQueryable<T> ApplyOrder(IQueryable<T> items)
+        public void ApplyOrder(IDataQueryable<T> items)
         {
-            var ordered = items as IOrderedQueryable<T>;
-            if (ordered == null) return items; //not ordered collection
             switch (_initialDirection)
             {
                 case GridSortDirection.Ascending:
-                    return ordered.ThenBy(_expression);
+                    items.OrderList.Add(ColumnOrder<T>.NewColumnOrder(_expression));
+                    break;
                 case GridSortDirection.Descending:
-                    return ordered.ThenByDescending(_expression);
+                    items.OrderList.Add(ColumnOrder<T>.NewColumnOrder(_expression, OrderDirection.Descending));
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        public IQueryable<T> ApplyOrder(IQueryable<T> items, GridSortDirection direction)
+        public void ApplyOrder(IDataQueryable<T> items, GridSortDirection direction)
         {
-            return ApplyOrder(items);
+            ApplyOrder(items);
         }
 
         #endregion

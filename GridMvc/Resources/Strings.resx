@@ -120,6 +120,9 @@
   <data name="DefaultGridEmptyText" xml:space="preserve">
     <value>There are no items to display</value>
   </data>
+  <data name="ExpressionBodyShouldBeMemberExpression" xml:space="preserve">
+    <value>Expression body should be MemberExpression type.</value>
+  </data>
   <data name="FilterButtonTooltipText" xml:space="preserve">
     <value>Filter this column</value>
   </data>

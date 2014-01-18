@@ -10,5 +10,4 @@ namespace GridMvc
     {
         void Process(IDataQueryable<T> items);
     }
-
 }

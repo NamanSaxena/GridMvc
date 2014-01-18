@@ -120,6 +120,9 @@
   <data name="DefaultGridEmptyText" xml:space="preserve">
     <value>Нет элементов для отображения</value>
   </data>
+  <data name="ExpressionBodyShouldBeMemberExpression" xml:space="preserve">
+    <value>Тело Expression должно быть типа MemberExpression.</value>
+  </data>
   <data name="FilterButtonTooltipText" xml:space="preserve">
     <value>Добавить фильтр по полю</value>
   </data>

@@ -8,7 +8,7 @@ namespace GridMvc.Sorting
     /// <typeparam name="T"></typeparam>
     public interface IColumnOrderer<T>
     {
-        IQueryable<T> ApplyOrder(IQueryable<T> items);
-        IQueryable<T> ApplyOrder(IQueryable<T> items, GridSortDirection direction);
+        void ApplyOrder(IDataQueryable<T> items);
+        void ApplyOrder(IDataQueryable<T> items, GridSortDirection direction);
     }
 }

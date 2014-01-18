@@ -18,19 +18,23 @@ namespace GridMvc.Sorting
 
         #region IColumnOrderer<T> Members
 
-        public IQueryable<T> ApplyOrder(IQueryable<T> items)
+        public void ApplyOrder(IDataQueryable<T> items)
         {
-            return ApplyOrder(items, GridSortDirection.Ascending);
+            ApplyOrder(items, GridSortDirection.Ascending);
         }
 
-        public IQueryable<T> ApplyOrder(IQueryable<T> items, GridSortDirection direction)
+        public void ApplyOrder(IDataQueryable<T> items, GridSortDirection direction)
         {
             switch (direction)
             {
                 case GridSortDirection.Ascending:
-                    return items.OrderBy(_expression);
+                    items.OrderList.Clear();
+                    items.OrderList.Add(ColumnOrder<T>.NewColumnOrder(_expression));
+                    break;
                 case GridSortDirection.Descending:
-                    return items.OrderByDescending(_expression);
+                    items.OrderList.Clear();
+                    items.OrderList.Add(ColumnOrder<T>.NewColumnOrder(_expression, OrderDirection.Descending));
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("direction");
             }

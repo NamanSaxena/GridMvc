@@ -36,7 +36,7 @@ namespace GridMvc
         /// <summary>
         /// Order list.
         /// </summary>
-        IList<ColumnOrder> OrderList
+        IList<ColumnOrder<T>> OrderList
         {
             get;
         }
