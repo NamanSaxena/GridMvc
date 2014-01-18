@@ -84,22 +84,22 @@ namespace GridMvc.Html
             return this;
         }
 
-        public IGridHtmlOptions<T> Filterable()
-        {
-            return Filterable(true);
-        }
+        //public IGridHtmlOptions<T> Filterable()
+        //{
+        //    return Filterable(true);
+        //}
 
-        public IGridHtmlOptions<T> Filterable(bool enable)
-        {
-            _source.DefaultFilteringEnabled = enable;
-            foreach (IGridColumn column in _source.Columns)
-            {
-                var typedColumn = column as IGridColumn<T>;
-                if (typedColumn == null) continue;
-                typedColumn.Filterable(enable);
-            }
-            return this;
-        }
+        //public IGridHtmlOptions<T> Filterable(bool enable)
+        //{
+        //    _source.DefaultFilteringEnabled = enable;
+        //    foreach (IGridColumn column in _source.Columns)
+        //    {
+        //        var typedColumn = column as IGridColumn<T>;
+        //        if (typedColumn == null) continue;
+        //        typedColumn.Filterable(enable);
+        //    }
+        //    return this;
+        //}
 
         public IGridHtmlOptions<T> Selectable(bool set)
         {
@@ -141,11 +141,11 @@ namespace GridMvc.Html
             return this;
         }
 
-        public IGridHtmlOptions<T> WithMultipleFilters()
-        {
-            _source.RenderOptions.AllowMultipleFilters = true;
-            return this;
-        }
+        //public IGridHtmlOptions<T> WithMultipleFilters()
+        //{
+        //    _source.RenderOptions.AllowMultipleFilters = true;
+        //    return this;
+        //}
 
         #endregion
 

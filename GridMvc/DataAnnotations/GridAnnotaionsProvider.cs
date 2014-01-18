@@ -22,7 +22,7 @@ namespace GridMvc.DataAnnotations
                 dataAnnotationAttr = new GridColumnAttribute
                     {
                         Title = dataAnnotations.DisplayName,
-                        FilterEnabled = dataAnnotations.FilterEnabled ?? false,
+                        //FilterEnabled = dataAnnotations.FilterEnabled ?? false,
                         Format = dataAnnotations.Format
                     };
             }

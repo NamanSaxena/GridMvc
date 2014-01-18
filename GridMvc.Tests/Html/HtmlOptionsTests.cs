@@ -33,8 +33,8 @@ namespace GridMvc.Tests.Html
             Assert.IsTrue(_grid.EnablePaging);
             Assert.AreEqual(_grid.Pager.PageSize, 5);
 
-            _opt.WithMultipleFilters();
-            Assert.IsTrue(_grid.RenderOptions.AllowMultipleFilters);
+            //_opt.WithMultipleFilters();
+            //Assert.IsTrue(_grid.RenderOptions.AllowMultipleFilters);
 
             _opt.Named("test");
             Assert.AreEqual(_grid.RenderOptions.GridName, "test");

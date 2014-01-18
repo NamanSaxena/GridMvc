@@ -37,7 +37,7 @@ namespace GridMvc.Site.Models
         public string CustomerID { get; set; }
         [NotMappedColumn]
         public int? EmployeeID { get; set; }
-        [GridColumn(Title = "Date", Width = "120px", Format = "{0:dd/MM/yyyy}", SortEnabled = true, FilterEnabled = true, SortInitialDirection = GridSortDirection.Descending)]
+        [GridColumn(Title = "Date", Width = "120px", Format = "{0:dd/MM/yyyy}", SortEnabled = true, /* FilterEnabled = true, */SortInitialDirection = GridSortDirection.Descending)]
         public DateTime? OrderDate { get; set; }
         [NotMappedColumn]
         public DateTime? RequiredDate { get; set; }
@@ -45,7 +45,7 @@ namespace GridMvc.Site.Models
         public DateTime? ShippedDate { get; set; }
         [NotMappedColumn]
         public int? ShipVia { get; set; }
-        [GridColumn(Title = "Freight", Width = "120px", SortEnabled = true, FilterEnabled = true)]
+        [GridColumn(Title = "Freight", Width = "120px", SortEnabled = true/*,  FilterEnabled = true */)]
         public decimal? Freight { get; set; }
 
         public string ShipName { get; set; }

@@ -11,7 +11,7 @@ namespace GridMvc.Columns
     public interface IColumnBuilder<T>
     {
         bool DefaultSortEnabled { get; set; }
-        bool DefaultFilteringEnabled { get; set; }
+        //bool DefaultFilteringEnabled { get; set; }
 
         /// <summary>
         ///     Creates column based on column expression

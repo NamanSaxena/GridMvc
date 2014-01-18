@@ -6,11 +6,11 @@ using GridMvc.Sorting;
 
 namespace GridMvc.Columns
 {
-    public interface IGridColumn<T> : IGridColumn, IColumn<T>, ISortableColumn<T>, IFilterableColumn<T>
+    public interface IGridColumn<T> : IGridColumn, IColumn<T>, ISortableColumn<T> //, IFilterableColumn<T>
     {
     }
 
-    public interface IGridColumn : ISortableColumn, IFilterableColumn
+    public interface IGridColumn : ISortableColumn //, IFilterableColumn
     {
         IGrid ParentGrid { get; }
     }

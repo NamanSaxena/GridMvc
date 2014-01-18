@@ -196,7 +196,7 @@ namespace GridMvc.Tests.Sorting
             var settingsMock = new Mock<IGridSettingsProvider>();
             settingsMock.Setup(s => s.SortSettings.ColumnName).Returns(columnName);
             settingsMock.Setup(s => s.SortSettings.Direction).Returns(direction);
-            settingsMock.Setup(s => s.FilterSettings).Returns(new QueryStringFilterSettings());
+            //settingsMock.Setup(s => s.FilterSettings).Returns(new QueryStringFilterSettings());
             grid.Settings = settingsMock.Object;
 
             IEnumerable<TestModel> resultCollection = _grid.GetItemsToDisplay();

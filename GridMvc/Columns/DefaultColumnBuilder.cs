@@ -93,7 +93,7 @@ namespace GridMvc.Columns
             if (!hidden && column != null)
             {
                 column.Sortable(DefaultSortEnabled);
-                column.Filterable(DefaultFilteringEnabled);
+                //column.Filterable(DefaultFilteringEnabled);
             }
             return column;
         }
@@ -102,15 +102,15 @@ namespace GridMvc.Columns
         {
             column.Encoded(options.EncodeEnabled)
                   .Sanitized(options.SanitizeEnabled)
-                  .Filterable(options.FilterEnabled)
+                  //.Filterable(options.FilterEnabled)
                   .Sortable(options.SortEnabled);
 
             GridSortDirection? initialDirection = options.GetInitialSortDirection();
             if (initialDirection.HasValue)
                 column.SortInitialDirection(initialDirection.Value);
 
-            if (!string.IsNullOrEmpty(options.FilterWidgetType))
-                column.SetFilterWidgetType(options.FilterWidgetType);
+            //if (!string.IsNullOrEmpty(options.FilterWidgetType))
+            //    column.SetFilterWidgetType(options.FilterWidgetType);
 
             if (!string.IsNullOrEmpty(options.Format))
                 column.Format(options.Format);

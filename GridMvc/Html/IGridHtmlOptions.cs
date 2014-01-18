@@ -42,15 +42,15 @@ namespace GridMvc.Html
         /// </summary>
         IGridHtmlOptions<T> Sortable(bool enable);
 
-        /// <summary>
-        ///     Enable filtering for all columns
-        /// </summary>
-        IGridHtmlOptions<T> Filterable();
+        ///// <summary>
+        /////     Enable filtering for all columns
+        ///// </summary>
+        //IGridHtmlOptions<T> Filterable();
 
-        /// <summary>
-        ///     Enable or disable filtering for all columns
-        /// </summary>
-        IGridHtmlOptions<T> Filterable(bool enable);
+        ///// <summary>
+        /////     Enable or disable filtering for all columns
+        ///// </summary>
+        //IGridHtmlOptions<T> Filterable(bool enable);
 
         /// <summary>
         ///     Enable or disable client grid items selectable feature
@@ -85,10 +85,10 @@ namespace GridMvc.Html
         /// </summary>
         IGridHtmlOptions<T> AutoGenerateColumns();
 
-        /// <summary>
-        ///     Allow grid to use multiple filters
-        /// </summary>
-        IGridHtmlOptions<T> WithMultipleFilters();
+        ///// <summary>
+        /////     Allow grid to use multiple filters
+        ///// </summary>
+        //IGridHtmlOptions<T> WithMultipleFilters();
 
         /// <summary>
         ///     Obviously render Grid markup

@@ -53,21 +53,21 @@ namespace GridMvc.Columns
             set { _cellRenderer = value; }
         }
 
-        public override bool FilterEnabled
-        {
-            get { return false; }
-            set { }
-        }
+        //public override bool FilterEnabled
+        //{
+        //    get { return false; }
+        //    set { }
+        //}
 
-        public override IColumnFilter<T> Filter
-        {
-            get { return null; }
-        }
+        //public override IColumnFilter<T> Filter
+        //{
+        //    get { return null; }
+        //}
 
-        public override string FilterWidgetTypeName
-        {
-            get { return PropertiesHelper.GetUnderlyingType(typeof (TDataType)).FullName; }
-        }
+        //public override string FilterWidgetTypeName
+        //{
+        //    get { return PropertiesHelper.GetUnderlyingType(typeof (TDataType)).FullName; }
+        //}
 
         //public override bool IsSorted { get; set; }
         //public override GridSortDirection? Direction { get; set; }
@@ -77,15 +77,15 @@ namespace GridMvc.Columns
             get { return _grid; }
         }
 
-        public override IGridColumn<T> SetFilterWidgetType(string typeName, object widgetData)
-        {
-            return this; //Do nothing
-        }
+        //public override IGridColumn<T> SetFilterWidgetType(string typeName, object widgetData)
+        //{
+        //    return this; //Do nothing
+        //}
 
-        public override IGridColumn<T> SetFilterWidgetType(string typeName)
-        {
-            return this; //Do nothing
-        }
+        //public override IGridColumn<T> SetFilterWidgetType(string typeName)
+        //{
+        //    return this; //Do nothing
+        //}
 
         public override IGridColumn<T> SortInitialDirection(GridSortDirection direction)
         {
@@ -135,10 +135,10 @@ namespace GridMvc.Columns
             return new GridCell(textValue) {Encode = EncodeEnabled};
         }
 
-        public override IGridColumn<T> Filterable(bool showColumnValuesVariants)
-        {
-            return this;
-        }
+        //public override IGridColumn<T> Filterable(bool showColumnValuesVariants)
+        //{
+        //    return this;
+        //}
 
         public override IGridCell GetCell(object instance)
         {

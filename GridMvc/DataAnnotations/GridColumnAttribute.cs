@@ -28,10 +28,10 @@ namespace GridMvc.DataAnnotations
         /// </summary>
         public bool SortEnabled { get; set; }
 
-        /// <summary>
-        ///     Enable or disable column filtering
-        /// </summary>
-        public bool FilterEnabled { get; set; }
+        ///// <summary>
+        /////     Enable or disable column filtering
+        ///// </summary>
+        //public bool FilterEnabled { get; set; }
 
         /// <summary>
         ///     Sets or get column width,
@@ -39,10 +39,10 @@ namespace GridMvc.DataAnnotations
         /// </summary>
         public string Width { get; set; }
 
-        /// <summary>
-        ///     Sets or get column custom filter widget type
-        /// </summary>
-        public string FilterWidgetType { get; set; }
+        ///// <summary>
+        /////     Sets or get column custom filter widget type
+        ///// </summary>
+        //public string FilterWidgetType { get; set; }
 
 
         /// <summary>

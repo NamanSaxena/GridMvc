@@ -19,7 +19,7 @@ namespace GridMvc
         private readonly IGridAnnotaionsProvider _annotaions;
         private readonly IColumnBuilder<T> _columnBuilder;
         private readonly GridColumnCollection<T> _columnsCollection;
-        private readonly FilterGridItemsProcessor<T> _currentFilterItemsProcessor;
+        //private readonly FilterGridItemsProcessor<T> _currentFilterItemsProcessor;
         private readonly SortGridItemsProcessor<T> _currentSortItemsProcessor;
 
         private int _displayingItemsCount = -1; // count of displaying items (if using pagination)
@@ -41,8 +41,8 @@ namespace GridMvc
             Language = Strings.Lang;
 
             _currentSortItemsProcessor = new SortGridItemsProcessor<T>(this, _settings.SortSettings);
-            _currentFilterItemsProcessor = new FilterGridItemsProcessor<T>(this, _settings.FilterSettings);
-            AddItemsPreProcessor(_currentFilterItemsProcessor);
+            //_currentFilterItemsProcessor = new FilterGridItemsProcessor<T>(this, _settings.FilterSettings);
+            //AddItemsPreProcessor(_currentFilterItemsProcessor);
             AddItemsPreProcessor(_currentSortItemsProcessor);
 
             _annotaions = new GridAnnotaionsProvider();
@@ -74,14 +74,14 @@ namespace GridMvc
             set { _columnBuilder.DefaultSortEnabled = value; }
         }
 
-        /// <summary>
-        ///     Set or get default value of filtering for all adding columns
-        /// </summary>
-        public bool DefaultFilteringEnabled
-        {
-            get { return _columnBuilder.DefaultFilteringEnabled; }
-            set { _columnBuilder.DefaultFilteringEnabled = value; }
-        }
+        ///// <summary>
+        /////     Set or get default value of filtering for all adding columns
+        ///// </summary>
+        //public bool DefaultFilteringEnabled
+        //{
+        //    get { return _columnBuilder.DefaultFilteringEnabled; }
+        //    set { _columnBuilder.DefaultFilteringEnabled = value; }
+        //}
 
         public GridRenderOptions RenderOptions { get; set; }
 
@@ -95,7 +95,7 @@ namespace GridMvc
             {
                 _settings = value;
                 _currentSortItemsProcessor.UpdateSettings(_settings.SortSettings);
-                _currentFilterItemsProcessor.UpdateSettings(_settings.FilterSettings);
+                //_currentFilterItemsProcessor.UpdateSettings(_settings.FilterSettings);
             }
         }
 

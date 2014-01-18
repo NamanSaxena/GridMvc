@@ -91,38 +91,38 @@ namespace GridMvc.Columns
             get { return _orderers; }
         }
 
-        public override bool FilterEnabled { get; set; }
+        //public override bool FilterEnabled { get; set; }
 
 
-        public override IColumnFilter<T> Filter
-        {
-            get { return _filter; }
-        }
+        //public override IColumnFilter<T> Filter
+        //{
+        //    get { return _filter; }
+        //}
 
-        public override string FilterWidgetTypeName
-        {
-            get { return _filterWidgetTypeName; }
-        }
+        //public override string FilterWidgetTypeName
+        //{
+        //    get { return _filterWidgetTypeName; }
+        //}
 
         public override IGrid ParentGrid
         {
             get { return _grid; }
         }
 
-        public override IGridColumn<T> SetFilterWidgetType(string typeName, object widgetData)
-        {
-            SetFilterWidgetType(typeName);
-            if (widgetData != null)
-                FilterWidgetData = widgetData;
-            return this;
-        }
+        //public override IGridColumn<T> SetFilterWidgetType(string typeName, object widgetData)
+        //{
+        //    SetFilterWidgetType(typeName);
+        //    if (widgetData != null)
+        //        FilterWidgetData = widgetData;
+        //    return this;
+        //}
 
-        public override IGridColumn<T> SetFilterWidgetType(string typeName)
-        {
-            if (!string.IsNullOrEmpty(typeName))
-                _filterWidgetTypeName = typeName;
-            return this;
-        }
+        //public override IGridColumn<T> SetFilterWidgetType(string typeName)
+        //{
+        //    if (!string.IsNullOrEmpty(typeName))
+        //        _filterWidgetTypeName = typeName;
+        //    return this;
+        //}
 
         public override IGridColumn<T> SortInitialDirection(GridSortDirection direction)
         {
@@ -186,14 +186,14 @@ namespace GridMvc.Columns
             return new GridCell(textValue) {Encode = EncodeEnabled};
         }
 
-        public override IGridColumn<T> Filterable(bool enable)
-        {
-            if (enable && _constraint == null)
-            {
-                return this; //cannot enable filtering for column without expression
-            }
-            FilterEnabled = enable;
-            return this;
-        }
+        //public override IGridColumn<T> Filterable(bool enable)
+        //{
+        //    if (enable && _constraint == null)
+        //    {
+        //        return this; //cannot enable filtering for column without expression
+        //    }
+        //    FilterEnabled = enable;
+        //    return this;
+        //}
     }
 }

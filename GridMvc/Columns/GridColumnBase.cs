@@ -87,17 +87,17 @@ namespace GridMvc.Columns
             return this;
         }
 
-        public IGridColumn<T> SetInitialFilter(GridFilterType type, string value)
-        {
-            var filter = new ColumnFilterValue
-                {
-                    FilterType = type,
-                    FilterValue = value,
-                    ColumnName = Name
-                };
-            InitialFilterSettings = filter;
-            return this;
-        }
+        //public IGridColumn<T> SetInitialFilter(GridFilterType type, string value)
+        //{
+        //    var filter = new ColumnFilterValue
+        //        {
+        //            FilterType = type,
+        //            FilterValue = value,
+        //            ColumnName = Name
+        //        };
+        //    InitialFilterSettings = filter;
+        //    return this;
+        //}
 
         public abstract IGridColumn<T> SortInitialDirection(GridSortDirection direction);
 
@@ -111,20 +111,20 @@ namespace GridMvc.Columns
         public abstract IGridCellRenderer CellRenderer { get; set; }
         public abstract IGridCell GetCell(object instance);
 
-        public abstract bool FilterEnabled { get; set; }
+        //public abstract bool FilterEnabled { get; set; }
 
-        public ColumnFilterValue InitialFilterSettings { get; set; }
+        //public ColumnFilterValue InitialFilterSettings { get; set; }
 
-        public abstract IGridColumn<T> Filterable(bool showColumnValuesVariants);
-
-
-        public abstract IGridColumn<T> SetFilterWidgetType(string typeName);
-        public abstract IGridColumn<T> SetFilterWidgetType(string typeName, object widgetData);
+        //public abstract IGridColumn<T> Filterable(bool showColumnValuesVariants);
 
 
-        public abstract IColumnFilter<T> Filter { get; }
-        public abstract string FilterWidgetTypeName { get; }
-        public object FilterWidgetData { get; protected set; }
+        //public abstract IGridColumn<T> SetFilterWidgetType(string typeName);
+        //public abstract IGridColumn<T> SetFilterWidgetType(string typeName, object widgetData);
+
+
+        //public abstract IColumnFilter<T> Filter { get; }
+        //public abstract string FilterWidgetTypeName { get; }
+        //public object FilterWidgetData { get; protected set; }
 
         #endregion
 

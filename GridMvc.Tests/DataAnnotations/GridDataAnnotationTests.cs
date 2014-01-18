@@ -49,7 +49,7 @@ namespace GridMvc.Tests.DataAnnotations
                         Assert.Fail();
 
                     Assert.AreEqual(column.EncodeEnabled, gridOpt.EncodeEnabled);
-                    Assert.AreEqual(column.FilterEnabled, gridOpt.FilterEnabled);
+                    //Assert.AreEqual(column.FilterEnabled, gridOpt.FilterEnabled);
                     Assert.AreEqual(column.SanitizeEnabled, gridOpt.SanitizeEnabled);
 
                     if (!string.IsNullOrEmpty(gridOpt.Title))

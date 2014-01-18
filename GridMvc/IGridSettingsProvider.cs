@@ -9,7 +9,7 @@ namespace GridMvc
     public interface IGridSettingsProvider
     {
         IGridSortSettings SortSettings { get; }
-        IGridFilterSettings FilterSettings { get; }
+        //IGridFilterSettings FilterSettings { get; }
         IGridColumnHeaderRenderer GetHeaderRenderer();
     }
 }

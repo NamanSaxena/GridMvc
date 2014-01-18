@@ -7,7 +7,7 @@
             ViewName = viewName;
             GridName = gridName;
             Selectable = true;
-            AllowMultipleFilters = false;
+            //AllowMultipleFilters = false;
         }
 
         public GridRenderOptions()
@@ -20,10 +20,10 @@
         /// </summary>
         public string ViewName { get; set; }
 
-        /// <summary>
-        ///     Is multiple filters allowed
-        /// </summary>
-        public bool AllowMultipleFilters { get; set; }
+        ///// <summary>
+        /////     Is multiple filters allowed
+        ///// </summary>
+        //public bool AllowMultipleFilters { get; set; }
 
         /// <summary>
         ///     Gets or set grid items selectable

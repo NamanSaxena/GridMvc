@@ -25,10 +25,10 @@ namespace GridMvc
             get { return _sortSettings; }
         }
 
-        public IGridFilterSettings FilterSettings
-        {
-            get { return _filterSettings; }
-        }
+        //public IGridFilterSettings FilterSettings
+        //{
+        //    get { return _filterSettings; }
+        //}
 
         public IGridColumnHeaderRenderer GetHeaderRenderer()
         {
