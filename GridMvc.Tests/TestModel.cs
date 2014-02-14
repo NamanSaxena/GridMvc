@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace GridMvc.Tests
 {
@@ -28,5 +29,11 @@ namespace GridMvc.Tests
     {
         public string ChildTitle { get; set; }
         public DateTime ChildCreated { get; set; }
+    }
+
+    public class TestModelWithDispayNameColumn
+    {
+        [Display(Name = "Column1")]
+        public string Column { get; set; }
     }
 }

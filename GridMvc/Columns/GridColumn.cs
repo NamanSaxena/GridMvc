@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using GridMvc.Filtering;
 using GridMvc.Sorting;
 using GridMvc.Utility;
+using System.Web.Mvc;
+using System.Web;
 
 namespace GridMvc.Columns
 {
@@ -63,8 +66,22 @@ namespace GridMvc.Columns
                 _filter = new DefaultColumnFilter<T, TDataType>(expression);
                 //Generate unique column name:
                 Name = PropertiesHelper.BuildColumnNameFromMemberExpression(expr);
-                Title = Name; //Using the same name by default
+			    Title = DisplayNameHelper(ModelMetadata.FromLambdaExpression<T, TDataType>(expression, new ViewDataDictionary<T>()), ExpressionHelper.GetExpressionText(expression));
             }
+        }
+
+        private static string DisplayNameHelper(ModelMetadata metadata, string htmlFieldName)
+        {
+            string name;
+            if ((name = metadata.DisplayName) == null && (name = metadata.PropertyName) == null)
+            {
+                name = htmlFieldName.Split(new char[]
+				{
+					'.'
+				}).Last<string>();
+            }
+
+            return name;
         }
 
         public override IGridColumnHeaderRenderer HeaderRenderer
