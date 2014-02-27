@@ -8,7 +8,7 @@ namespace GridMvc
     /// <summary>
     /// Provides ordering, filtering and paging management.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Model object.</typeparam>
     public interface IDataQueryable<T>
     {
         /// <summary>
