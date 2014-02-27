@@ -21,12 +21,9 @@ namespace GridMvc.Site.Models
             _columnOrder = new List<ColumnOrder<T>>();
         }
 
-        public int Count
+        public int FetchCount()
         {
-            get 
-            {
-                return _enumeration.Count();
-            }
+            return _enumeration.Count();
         }
 
         public IEnumerable<T> Fetch()

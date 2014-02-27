@@ -22,9 +22,9 @@ namespace GridMvc.Tests
             OrderList = new List<ColumnOrder<T>>();
         }
 
-        public int Count
+        public int FetchCount()
         {
-            get { return list.Count; }
+            return list.Count;
         }
 
         public IEnumerable<T> Fetch()

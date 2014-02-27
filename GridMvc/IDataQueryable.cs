@@ -12,12 +12,9 @@ namespace GridMvc
     public interface IDataQueryable<T>
     {
         /// <summary>
-        /// Full row count.
+        /// Fetches row count.
         /// </summary>
-        int Count
-        {
-            get;
-        }
+        int FetchCount();
 
         /// <summary>
         /// Fetches all rows.
